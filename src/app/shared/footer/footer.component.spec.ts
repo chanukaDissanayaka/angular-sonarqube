@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { FooterComponent } from './footer.component';
 import { CopyrightPipe } from '../../copyright.pipe';
 
-fdescribe('FooterComponent', () => {
+describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 

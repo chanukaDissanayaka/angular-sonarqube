@@ -1,6 +1,6 @@
 import { CopyrightPipe } from './copyright.pipe';
 
-fdescribe('CopyrightPipe', () => {
+describe('CopyrightPipe', () => {
 
   it('create an instance', () => {
     const pipe = new CopyrightPipe();

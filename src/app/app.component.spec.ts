@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
 
   let appComponent: AppComponent;
 
@@ -31,14 +31,24 @@ fdescribe('AppComponent', () => {
     expect(appComponent).toBeTruthy();
   });
 
+  it('should add an item to list', ()=>{
+    const item = {id: 10, name: 'newtodolist', description: 'This is new todo list'};
+    var old = appComponent.numberOfItems ;
+
+    appComponent.addItemList(item);
+
+    expect(appComponent.numberOfItems).toBe(old+1);
+  });
+
   it('should delete an item with existing item', () => {
 
     // given this item
     const item = {id: 1, name: 'todolist', description: 'This is todo list app'};
     // execute the test case
+    var old = appComponent.itemList.length ;
     appComponent.deleteItem(item);
     // assertion
-    expect(appComponent.itemList.length).toBe(1);
+    expect(appComponent.itemList.length).toBe(old-1);
   });
 
   it('should not delete an item with new item', () => {
@@ -46,9 +56,10 @@ fdescribe('AppComponent', () => {
     // given this item
     const item = {id: 3, name: 'todolist', description: 'This is todo list app'};
     // execute the test case
+    var old = appComponent.itemList.length ;
     appComponent.deleteItem(item);
     // assertion
-    expect(appComponent.itemList.length).toBe(2);
+    expect(appComponent.itemList.length).toBe(old);
   });
 
 
